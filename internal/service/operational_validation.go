@@ -19,7 +19,7 @@ func NormalizeWindow(from, to time.Time, maximum time.Duration) (OperationalWind
 	if from.IsZero() || to.IsZero() {
 		return OperationalWindow{}, fmt.Errorf("window endpoints are required")
 	}
-	from = from.UTC().Truncate(time.Hour)
+	from = from.UTC().Truncate(time.Minute)
 	to = to.UTC().Truncate(time.Minute)
 	if !to.After(from) {
 		return OperationalWindow{}, fmt.Errorf("window end must be after start")
