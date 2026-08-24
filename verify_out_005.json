@@ -2,12 +2,12 @@
   "bug_id": "lab-sample-trace-bench-BUG-005",
   "task_type": "bugfix",
   "pre_fix": {
-    "result": "FAIL",
+    "result": "red",
     "commit": "b7caae4d5a91a299de6cc333ba4416bc8a5f1383",
     "output": "--- FAIL: TestBug005DepartedCallCannotBecomeAlongside (0.00s)\n    bug005_regression_test.go:9: departed schedule was allowed to re-enter active state\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.762s\nFAIL\n"
   },
   "post_fix": {
-    "result": "PASS",
+    "result": "green",
     "commit": "edb204625c6b6afe9afbe4d71c0783760e65b7fc",
     "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
   },

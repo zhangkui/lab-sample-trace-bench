@@ -13,11 +13,16 @@
   "gold_patch": "修复提交：edb204625c6b6afe9afbe4d71c0783760e65b7fc",
   "success_criteria": "目标行为：departed 为终态；边界：所有终态转移均拒绝；合法场景：proposed→arriving→alongside→departed；验证标准：非法转移返回 false，合法顺序保持通过。",
   "verify_result": {
-    "baseline_commit": "506c902d7590989f8b7b5fd7f29c89ba31ca9a2f",
-    "test_commit": "b7caae4d5a91a299de6cc333ba4416bc8a5f1383",
-    "fix_commit": "edb204625c6b6afe9afbe4d71c0783760e65b7fc",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "b7caae4d5a91a299de6cc333ba4416bc8a5f1383",
+      "trajectory_url": "未生成"
+    },
+    "post_fix": {
+      "result": "green",
+      "commit": "edb204625c6b6afe9afbe4d71c0783760e65b7fc",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"

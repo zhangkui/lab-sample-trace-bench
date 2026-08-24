@@ -13,11 +13,16 @@
   "gold_patch": "修复提交：0275786b2413e726a00cfdb3c12d8245f2079c8e",
   "success_criteria": "目标行为：紧急任务优先出队；边界：PriorityUrgent 与 PriorityStandard 相同截止时间；合法场景：普通、船期、紧急任务混合队列；验证标准：TestBug001 红测失败且修复分支通过。",
   "verify_result": {
-    "baseline_commit": "2f2d103444a865bace68feaf166b8c5ce1c6c653",
-    "test_commit": "d11cf73e24f661e073c871ad74a6aa8625b5669a",
-    "fix_commit": "0275786b2413e726a00cfdb3c12d8245f2079c8e",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "d11cf73e24f661e073c871ad74a6aa8625b5669a",
+      "trajectory_url": "未生成"
+    },
+    "post_fix": {
+      "result": "green",
+      "commit": "0275786b2413e726a00cfdb3c12d8245f2079c8e",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"

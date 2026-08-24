@@ -2,14 +2,9 @@
   "bug_id": "lab-sample-trace-bench-BUG-004",
   "task_type": "diagnosis",
   "pre_fix": {
-    "result": "FAIL",
+    "result": "red",
     "commit": "1acecd3211e3e5634e52aad14dc13f3c824d8d5c",
     "output": "--- FAIL: TestBug004StoppedDispatcherReturnsError (0.00s)\n    bug004_regression_test.go:12: closed result stream was treated as a successful result: service.DispatchResult{TaskID:\"\", Task:\"\", Err:error(nil)} <nil>\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.711s\nFAIL\n"
-  },
-  "post_fix": {
-    "result": "PASS",
-    "commit": "852e89e89f115333a3503b5fbd714e72d48711c7",
-    "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
   },
   "verify_cmds": "cd F:\\go-bug-create\\workspace\\lab-sample-trace-bench && go test ./internal/service -run TestBug004",
   "trajectory": "未生成"

@@ -13,11 +13,16 @@
   "gold_patch": "修复提交：5576260b151fbacccf50f98ba716583fbd29d44b",
   "success_criteria": "目标行为：仅归一化到分钟；边界：窗口长度等于最大允许时长；合法场景：任意分钟级运营窗口；验证标准：分钟信息保留且 NormalizeWindow 返回成功。",
   "verify_result": {
-    "baseline_commit": "d887606be07d413c7c1920423ef6f89714d7989e",
-    "test_commit": "f2060ac260ad81f5ea221f50a6bc3eb0f8ba2c8d",
-    "fix_commit": "5576260b151fbacccf50f98ba716583fbd29d44b",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "f2060ac260ad81f5ea221f50a6bc3eb0f8ba2c8d",
+      "trajectory_url": "未生成"
+    },
+    "post_fix": {
+      "result": "green",
+      "commit": "5576260b151fbacccf50f98ba716583fbd29d44b",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"

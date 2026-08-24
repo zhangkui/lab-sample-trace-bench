@@ -13,11 +13,16 @@
   "gold_patch": "修复提交：fb4808927d55ad6d4ff43b8e35af07f2e6c323f7",
   "success_criteria": "目标行为：08:00 起进入 morning；边界：00:00、08:00、16:00；合法场景：全天任意时间；验证标准：三个班次边界均落入正确窗口。",
   "verify_result": {
-    "baseline_commit": "afeac4bb28f77132a45cd3695e183d232233e7b3",
-    "test_commit": "632b0fe92cad53b15c5f63a0e89edc637c92447b",
-    "fix_commit": "fb4808927d55ad6d4ff43b8e35af07f2e6c323f7",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "632b0fe92cad53b15c5f63a0e89edc637c92447b",
+      "trajectory_url": "未生成"
+    },
+    "post_fix": {
+      "result": "green",
+      "commit": "fb4808927d55ad6d4ff43b8e35af07f2e6c323f7",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"

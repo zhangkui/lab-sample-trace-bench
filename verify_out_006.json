@@ -2,14 +2,9 @@
   "bug_id": "lab-sample-trace-bench-BUG-006",
   "task_type": "diagnosis",
   "pre_fix": {
-    "result": "FAIL",
+    "result": "red",
     "commit": "c9914d637674cb4986dc9bd98930f65086062ed5",
     "output": "--- FAIL: TestBug006ThirtyMinuteDeadlineIsCritical (0.00s)\n    bug006_regression_test.go:10: deadline class = soon\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.747s\nFAIL\n"
-  },
-  "post_fix": {
-    "result": "PASS",
-    "commit": "168f271c99ae580287b35dd6a63141d39f185f17",
-    "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
   },
   "verify_cmds": "cd F:\\go-bug-create\\workspace\\lab-sample-trace-bench && go test ./internal/service -run TestBug006",
   "trajectory": "未生成"

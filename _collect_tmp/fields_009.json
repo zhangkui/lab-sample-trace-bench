@@ -13,11 +13,16 @@
   "gold_patch": "修复提交：6273160754495a331976bcfce6e1674b29cfc9fb",
   "success_criteria": "目标行为：利用率达到或超过阈值即告警；边界：恰好阈值与 95% 紧急阈值；合法场景：低于阈值不告警；验证标准：等于阈值产生 pause_gate_in，达到 95% 产生 urgent_rehandle。",
   "verify_result": {
-    "baseline_commit": "1e97f84ce5ff67ae88a36c49c4fd718c16d1d8ca",
-    "test_commit": "828a82a539e51907915f2b877eaa1fd5bfeb0d70",
-    "fix_commit": "6273160754495a331976bcfce6e1674b29cfc9fb",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "828a82a539e51907915f2b877eaa1fd5bfeb0d70",
+      "trajectory_url": "未生成"
+    },
+    "post_fix": {
+      "result": "green",
+      "commit": "6273160754495a331976bcfce6e1674b29cfc9fb",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"

@@ -13,11 +13,11 @@
   "gold_patch": "修复提交：f5c53f68c2271567c21f3d9355f83af435a69c07",
   "success_criteria": "目标行为：assigned/running 任务必须有 crane；边界：queued 可以没有 crane，done 必须有 finished 时间；合法场景：合法状态与资源引用完整；验证标准：缺少 crane 返回错误，合法任务通过。",
   "verify_result": {
-    "baseline_commit": "1adca506cc96d125d6903e311c9cb5ab68401f39",
-    "test_commit": "1d323fcbabd9b6a658709925ae3adb9f7064e8fe",
-    "fix_commit": "f5c53f68c2271567c21f3d9355f83af435a69c07",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "1d323fcbabd9b6a658709925ae3adb9f7064e8fe",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"

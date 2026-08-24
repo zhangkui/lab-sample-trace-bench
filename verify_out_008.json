@@ -2,14 +2,9 @@
   "bug_id": "lab-sample-trace-bench-BUG-008",
   "task_type": "diagnosis",
   "pre_fix": {
-    "result": "FAIL",
+    "result": "red",
     "commit": "7521ef938cf40423f5e3105d960a2fa1d0d16911",
     "output": "--- FAIL: TestBug008VesselTaskNeedsCallReference (0.00s)\n    bug008_regression_test.go:12: load task without vessel call was admitted\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.712s\nFAIL\n"
-  },
-  "post_fix": {
-    "result": "PASS",
-    "commit": "65fed87a7f590cd7d9b43dbac3639d1aab247171",
-    "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
   },
   "verify_cmds": "cd F:\\go-bug-create\\workspace\\lab-sample-trace-bench && go test ./internal/service -run TestBug008",
   "trajectory": "未生成"

@@ -13,11 +13,11 @@
   "gold_patch": "修复提交：852e89e89f115333a3503b5fbd714e72d48711c7",
   "success_criteria": "目标行为：结果通道关闭必须返回明确错误；边界：正常结果、取消上下文、通道关闭；合法场景：worker 正常返回结果；验证标准：关闭后 WaitResult 返回非 nil error。",
   "verify_result": {
-    "baseline_commit": "f7bcbd460cdbb6d7f0804fee4e36e0dbf22c7eca",
-    "test_commit": "1acecd3211e3e5634e52aad14dc13f3c824d8d5c",
-    "fix_commit": "852e89e89f115333a3503b5fbd714e72d48711c7",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "1acecd3211e3e5634e52aad14dc13f3c824d8d5c",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"

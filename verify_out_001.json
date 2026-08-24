@@ -2,12 +2,12 @@
   "bug_id": "lab-sample-trace-bench-BUG-001",
   "task_type": "bugfix",
   "pre_fix": {
-    "result": "FAIL",
+    "result": "red",
     "commit": "d11cf73e24f661e073c871ad74a6aa8625b5669a",
     "output": "--- FAIL: TestBug001UrgentTasksRemainFirst (0.00s)\n    bug001_regression_test.go:11: urgent task was ordered after normal work: [{normal   3     0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC } {urgent   1     0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC }]\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.873s\nFAIL\n"
   },
   "post_fix": {
-    "result": "PASS",
+    "result": "green",
     "commit": "0275786b2413e726a00cfdb3c12d8245f2079c8e",
     "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
   },

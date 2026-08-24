@@ -13,11 +13,11 @@
   "gold_patch": "修复提交：168f271c99ae580287b35dd6a63141d39f185f17",
   "success_criteria": "目标行为：剩余时间小于或等于 30 分钟为 critical；边界：正好 30 分钟；合法场景：expired、critical、soon、normal 四类；验证标准：各边界分类与策略一致。",
   "verify_result": {
-    "baseline_commit": "5f0b902c77c8156df4c9ea32d4512430732ce742",
-    "test_commit": "c9914d637674cb4986dc9bd98930f65086062ed5",
-    "fix_commit": "168f271c99ae580287b35dd6a63141d39f185f17",
-    "red_failed": true,
-    "fix_passed": true
+    "pre_fix": {
+      "result": "red",
+      "commit": "c9914d637674cb4986dc9bd98930f65086062ed5",
+      "trajectory_url": "未生成"
+    }
   },
   "harness": "go test ./internal/service",
   "generator_model": "manual branch generation"
