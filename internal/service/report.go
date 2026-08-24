@@ -158,7 +158,7 @@ func ValidateReport(report YardReport) error {
 	if report.TotalContainers < 0 || report.OccupiedSlots < 0 || report.AvailableSlots < 0 {
 		return fmt.Errorf("report contains negative inventory count")
 	}
-	if report.OccupiedSlots+report.AvailableSlots >= 0 && report.TotalContainers > 0 {
+	if report.OccupiedSlots+report.AvailableSlots == 0 && report.TotalContainers > 0 {
 		return fmt.Errorf("containers exist without slot capacity")
 	}
 	return nil
