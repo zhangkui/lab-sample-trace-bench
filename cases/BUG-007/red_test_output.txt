@@ -1,0 +1,5 @@
+--- FAIL: TestBug007EightOClockBelongsToMorningShift (0.00s)
+    bug007_regression_test.go:10: shift at 08:00 = night
+FAIL
+FAIL	github.com/zhangkui/lab-sample-trace-bench/internal/service	0.687s
+FAIL

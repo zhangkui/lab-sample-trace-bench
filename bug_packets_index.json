@@ -1,0 +1,112 @@
+[
+  {
+    "bug_id": "lab-sample-trace-bench-bug-001",
+    "task_type": "bugfix",
+    "bug_category": "slice",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug001_green",
+    "red_branch": "bug001_red",
+    "fix_branch": "bug001_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-002",
+    "task_type": "bugfix",
+    "bug_category": "context",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug002_green",
+    "red_branch": "bug002_red",
+    "fix_branch": "bug002_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-003",
+    "task_type": "bugfix",
+    "bug_category": "error",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug003_green",
+    "red_branch": "bug003_red",
+    "fix_branch": "bug003_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-004",
+    "task_type": "diagnosis",
+    "bug_category": "nil",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug004_green",
+    "red_branch": "bug004_red",
+    "fix_branch": "bug004_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-005",
+    "task_type": "bugfix",
+    "bug_category": "concurrency",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug005_green",
+    "red_branch": "bug005_red",
+    "fix_branch": "bug005_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-006",
+    "task_type": "diagnosis",
+    "bug_category": "context",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug006_green",
+    "red_branch": "bug006_red",
+    "fix_branch": "bug006_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-007",
+    "task_type": "bugfix",
+    "bug_category": "slice",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug007_green",
+    "red_branch": "bug007_red",
+    "fix_branch": "bug007_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-008",
+    "task_type": "diagnosis",
+    "bug_category": "error",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug008_green",
+    "red_branch": "bug008_red",
+    "fix_branch": "bug008_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-009",
+    "task_type": "bugfix",
+    "bug_category": "concurrency",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug009_green",
+    "red_branch": "bug009_red",
+    "fix_branch": "bug009_fix",
+    "trajectory_url": "未生成"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-010",
+    "task_type": "diagnosis",
+    "bug_category": "nil",
+    "red_failed": true,
+    "fix_passed": true,
+    "green_branch": "bug010_green",
+    "red_branch": "bug010_red",
+    "fix_branch": "bug010_fix",
+    "trajectory_url": "未生成"
+  }
+]

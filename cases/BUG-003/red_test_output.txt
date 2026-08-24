@@ -1,0 +1,5 @@
+--- FAIL: TestBug003ValidInventoryReportIsAccepted (0.00s)
+    bug003_regression_test.go:7: valid capacity report rejected: containers exist without slot capacity
+FAIL
+FAIL	github.com/zhangkui/lab-sample-trace-bench/internal/service	0.709s
+FAIL

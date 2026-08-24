@@ -1,0 +1,5 @@
+--- FAIL: TestBug009CapacityAlertThresholdIsInclusive (0.00s)
+    bug009_regression_test.go:15: expected inclusive threshold alert, got 0
+FAIL
+FAIL	github.com/zhangkui/lab-sample-trace-bench/internal/service	0.760s
+FAIL

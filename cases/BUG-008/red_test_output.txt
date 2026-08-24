@@ -1,0 +1,5 @@
+--- FAIL: TestBug008VesselTaskNeedsCallReference (0.00s)
+    bug008_regression_test.go:12: load task without vessel call was admitted
+FAIL
+FAIL	github.com/zhangkui/lab-sample-trace-bench/internal/service	0.712s
+FAIL

@@ -1,0 +1,5 @@
+--- FAIL: TestBug005DepartedCallCannotBecomeAlongside (0.00s)
+    bug005_regression_test.go:9: departed schedule was allowed to re-enter active state
+FAIL
+FAIL	github.com/zhangkui/lab-sample-trace-bench/internal/service	0.762s
+FAIL

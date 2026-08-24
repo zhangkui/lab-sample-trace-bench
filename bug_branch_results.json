@@ -1,0 +1,112 @@
+[
+  {
+    "n": 1,
+    "red_branch": "bug001_red",
+    "fix_branch": "bug001_fix",
+    "red_sha": "d11cf73e24f661e073c871ad74a6aa8625b5669a",
+    "fix_sha": "0275786b2413e726a00cfdb3c12d8245f2079c8e",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug001UrgentTasksRemainFirst (0.00s)\n    bug001_regression_test.go:11: urgent task was ordered after normal work: [{normal   3     0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC } {urgent   1     0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC }]\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.873s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 2,
+    "red_branch": "bug002_red",
+    "fix_branch": "bug002_fix",
+    "red_sha": "f2060ac260ad81f5ea221f50a6bc3eb0f8ba2c8d",
+    "fix_sha": "5576260b151fbacccf50f98ba716583fbd29d44b",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug002WindowKeepsMinuteBoundary (0.00s)\n    bug002_regression_test.go:11: window exceeds maximum duration\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.803s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 3,
+    "red_branch": "bug003_red",
+    "fix_branch": "bug003_fix",
+    "red_sha": "1dc62ec6d00ff1e267e51663288b430585417bf1",
+    "fix_sha": "9e9b7fd44070487d84176d2b39a34dba4ea159d8",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug003ValidInventoryReportIsAccepted (0.00s)\n    bug003_regression_test.go:7: valid capacity report rejected: containers exist without slot capacity\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.709s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 4,
+    "red_branch": "bug004_red",
+    "fix_branch": "bug004_fix",
+    "red_sha": "1acecd3211e3e5634e52aad14dc13f3c824d8d5c",
+    "fix_sha": "852e89e89f115333a3503b5fbd714e72d48711c7",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug004StoppedDispatcherReturnsError (0.00s)\n    bug004_regression_test.go:12: closed result stream was treated as a successful result: service.DispatchResult{TaskID:\"\", Task:\"\", Err:error(nil)} <nil>\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.711s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 5,
+    "red_branch": "bug005_red",
+    "fix_branch": "bug005_fix",
+    "red_sha": "b7caae4d5a91a299de6cc333ba4416bc8a5f1383",
+    "fix_sha": "edb204625c6b6afe9afbe4d71c0783760e65b7fc",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug005DepartedCallCannotBecomeAlongside (0.00s)\n    bug005_regression_test.go:9: departed schedule was allowed to re-enter active state\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.762s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 6,
+    "red_branch": "bug006_red",
+    "fix_branch": "bug006_fix",
+    "red_sha": "c9914d637674cb4986dc9bd98930f65086062ed5",
+    "fix_sha": "168f271c99ae580287b35dd6a63141d39f185f17",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug006ThirtyMinuteDeadlineIsCritical (0.00s)\n    bug006_regression_test.go:10: deadline class = soon\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.747s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 7,
+    "red_branch": "bug007_red",
+    "fix_branch": "bug007_fix",
+    "red_sha": "632b0fe92cad53b15c5f63a0e89edc637c92447b",
+    "fix_sha": "fb4808927d55ad6d4ff43b8e35af07f2e6c323f7",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug007EightOClockBelongsToMorningShift (0.00s)\n    bug007_regression_test.go:10: shift at 08:00 = night\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.687s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 8,
+    "red_branch": "bug008_red",
+    "fix_branch": "bug008_fix",
+    "red_sha": "7521ef938cf40423f5e3105d960a2fa1d0d16911",
+    "fix_sha": "65fed87a7f590cd7d9b43dbac3639d1aab247171",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug008VesselTaskNeedsCallReference (0.00s)\n    bug008_regression_test.go:12: load task without vessel call was admitted\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.712s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 9,
+    "red_branch": "bug009_red",
+    "fix_branch": "bug009_fix",
+    "red_sha": "828a82a539e51907915f2b877eaa1fd5bfeb0d70",
+    "fix_sha": "6273160754495a331976bcfce6e1674b29cfc9fb",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug009CapacityAlertThresholdIsInclusive (0.00s)\n    bug009_regression_test.go:15: expected inclusive threshold alert, got 0\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.760s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  {
+    "n": 10,
+    "red_branch": "bug010_red",
+    "fix_branch": "bug010_fix",
+    "red_sha": "1d323fcbabd9b6a658709925ae3adb9f7064e8fe",
+    "fix_sha": "f5c53f68c2271567c21f3d9355f83af435a69c07",
+    "red_failed": true,
+    "fix_passed": true,
+    "red_output": "--- FAIL: TestBug010AssignedTaskRequiresCrane (0.00s)\n    bug010_regression_test.go:10: assigned task without crane was accepted\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.825s\nFAIL\n",
+    "fix_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  }
+]

@@ -1,0 +1,5 @@
+--- FAIL: TestBug001UrgentTasksRemainFirst (0.00s)
+    bug001_regression_test.go:11: urgent task was ordered after normal work: [{normal   3     0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC } {urgent   1     0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC 0001-01-01 00:00:00 +0000 UTC }]
+FAIL
+FAIL	github.com/zhangkui/lab-sample-trace-bench/internal/service	0.873s
+FAIL
