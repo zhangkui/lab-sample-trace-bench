@@ -202,7 +202,7 @@ func (s *Service) CompleteTask(id, actor string) (domain.Task, error) {
 func SortTasks(tasks []domain.Task) {
 	sort.SliceStable(tasks, func(i, j int) bool {
 		if tasks[i].Priority != tasks[j].Priority {
-			return tasks[i].Priority > tasks[j].Priority
+			return tasks[i].Priority < tasks[j].Priority
 		}
 		if tasks[i].Deadline.IsZero() != tasks[j].Deadline.IsZero() {
 			return !tasks[i].Deadline.IsZero()
