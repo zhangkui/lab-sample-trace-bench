@@ -1,0 +1,53 @@
+# BUG-003
+
+## bug_id
+lab-sample-trace-bench-bug-003
+
+## task_type
+bugfix
+
+## bug_category
+error
+
+## repro_determinism
+deterministic
+
+## repo_url
+https://github.com/zhangkui/lab-sample-trace-bench/tree/bug003_green
+
+## green_test_branch
+https://github.com/zhangkui/lab-sample-trace-bench/tree/bug003_red
+
+## baseline_commit
+355b04bb373dd30787253a86444ae13ca012d95c
+
+## test_commit
+1dc62ec6d00ff1e267e51663288b430585417bf1
+
+## fix_commit
+9e9b7fd44070487d84176d2b39a34dba4ea159d8
+
+## go_version
+go1.26.1 windows/amd64
+
+## user_query
+报表容量校验把所有存在容量的库存报表误判为没有容量。
+
+## verify_cmds
+```powershell
+go test -count=1 ./internal/service -run TestBug003
+```
+## gold_root_cause
+中文根因：容量条件使用了非负判断，导致 occupied+available 为正时也进入错误分支；证据是 BUG-003 红测拒绝 occupied=1、available=2 的合法报表。
+生产文件/符号：internal/service/report.go / ValidateReport
+调用链：BuildYardReport → ValidateReport → dashboard/report export
+失效原因：缺陷改变了生产逻辑的边界或状态约束，使合法输入得到错误结果。
+证据：红测提交 1dc62ec6d00ff1e267e51663288b430585417bf1 在 bug003_red 失败，修复提交 9e9b7fd44070487d84176d2b39a34dba4ea159d8 在 bug003_fix 通过。
+
+## success_criteria
+目标行为：有容器时必须存在正容量；边界：总容量为零且有容器时拒绝；合法场景：占用和空闲槽位均可为零或正数但总容量足够；验证标准：合法报表通过，非法报表返回错误。
+
+## validation
+red_failed=True
+fix_passed=True
+trajectory_url=未生成（本地模型轨迹采集工具不可用）

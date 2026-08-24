@@ -1,0 +1,53 @@
+# BUG-010
+
+## bug_id
+lab-sample-trace-bench-bug-010
+
+## task_type
+diagnosis
+
+## bug_category
+nil
+
+## repro_determinism
+deterministic
+
+## repo_url
+https://github.com/zhangkui/lab-sample-trace-bench/tree/bug010_green
+
+## green_test_branch
+https://github.com/zhangkui/lab-sample-trace-bench/tree/bug010_red
+
+## baseline_commit
+1adca506cc96d125d6903e311c9cb5ab68401f39
+
+## test_commit
+1d323fcbabd9b6a658709925ae3adb9f7064e8fe
+
+## fix_commit
+f5c53f68c2271567c21f3d9355f83af435a69c07
+
+## go_version
+go1.26.1 windows/amd64
+
+## user_query
+assigned 任务缺少 crane 标识时仍被接受，完成阶段无法释放对应资源。
+
+## verify_cmds
+```powershell
+go test -count=1 ./internal/service -run TestBug010
+```
+## gold_root_cause
+中文根因：任务状态校验在 assigned 阶段未建立 crane 资源依赖，导致后续调度与完成链路无法释放对应设备并接受无效任务；证据是 BUG-010 红测接受无 crane 的 assigned 任务。
+生产文件/符号：internal/service/operational_validation.go / ValidateTaskReferences
+调用链：CreateTask → ValidateTaskReferences → AssignNextTask/CompleteTask
+失效原因：缺陷改变了生产逻辑的边界或状态约束，使合法输入得到错误结果。
+证据：红测提交 1d323fcbabd9b6a658709925ae3adb9f7064e8fe 在 bug010_red 失败，修复提交 f5c53f68c2271567c21f3d9355f83af435a69c07 在 bug010_fix 通过。
+
+## success_criteria
+目标行为：assigned/running 任务必须有 crane；边界：queued 可以没有 crane，done 必须有 finished 时间；合法场景：合法状态与资源引用完整；验证标准：缺少 crane 返回错误，合法任务通过。
+
+## validation
+red_failed=True
+fix_passed=True
+trajectory_url=未生成（本地模型轨迹采集工具不可用）

@@ -1,0 +1,53 @@
+# BUG-002
+
+## bug_id
+lab-sample-trace-bench-bug-002
+
+## task_type
+bugfix
+
+## bug_category
+context
+
+## repro_determinism
+deterministic
+
+## repo_url
+https://github.com/zhangkui/lab-sample-trace-bench/tree/bug002_green
+
+## green_test_branch
+https://github.com/zhangkui/lab-sample-trace-bench/tree/bug002_red
+
+## baseline_commit
+d887606be07d413c7c1920423ef6f89714d7989e
+
+## test_commit
+f2060ac260ad81f5ea221f50a6bc3eb0f8ba2c8d
+
+## fix_commit
+5576260b151fbacccf50f98ba716583fbd29d44b
+
+## go_version
+go1.26.1 windows/amd64
+
+## user_query
+时间窗口归一化错误地截断到整点，跨越最大时长校验时拒绝合法的半小时窗口。
+
+## verify_cmds
+```powershell
+go test -count=1 ./internal/service -run TestBug002
+```
+## gold_root_cause
+中文根因：窗口起点被截断到小时而不是分钟，导致 12:34 被变成 12:00 并改变窗口长度；证据是 BUG-002 红测报 window exceeds maximum duration。
+生产文件/符号：internal/service/operational_validation.go / NormalizeWindow
+调用链：NormalizeWindow → report/scheduling callers → duration validation
+失效原因：缺陷改变了生产逻辑的边界或状态约束，使合法输入得到错误结果。
+证据：红测提交 f2060ac260ad81f5ea221f50a6bc3eb0f8ba2c8d 在 bug002_red 失败，修复提交 5576260b151fbacccf50f98ba716583fbd29d44b 在 bug002_fix 通过。
+
+## success_criteria
+目标行为：仅归一化到分钟；边界：窗口长度等于最大允许时长；合法场景：任意分钟级运营窗口；验证标准：分钟信息保留且 NormalizeWindow 返回成功。
+
+## validation
+red_failed=True
+fix_passed=True
+trajectory_url=未生成（本地模型轨迹采集工具不可用）
