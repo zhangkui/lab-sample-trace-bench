@@ -19,7 +19,10 @@ func main() {
 		log.Fatal(err)
 	}
 	defer repo.Close()
-	app := service.NewSampleService(repo)
+	app, err := service.New(repo)
+	if err != nil {
+		log.Fatal(err)
+	}
 	addr := os.Getenv("LAB_SAMPLE_TRACE_BENCH_ADDR")
 	if addr == "" {
 		addr = ":8080"

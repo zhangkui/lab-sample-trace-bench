@@ -1,71 +1,76 @@
+// Package service implements the container-yard business logic that ties the
+// domain model to the persistence layer and exposes operations the HTTP API can
+// call. Each file in the package owns a coherent slice of the yard's work:
+//
+//   - service.go:   construction, time source, shared helpers
+//   - container.go: container registration, release and search
+//   - yard.go:      zones, slot provisioning and stacking policy
+//   - move.go:      the gate-in / stack / rehandle / load / gate-out pipeline
+//   - schedule.go:  vessel calls, cranes and the task scheduler
+//   - anomaly.go:   anomaly raising, acknowledgement, escalation, resolution
+//   - report.go:    occupancy, dwell and shift statistics
 package service
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"strings"
 	"time"
 
-	"github.com/zhangkui/lab-sample-trace-bench/internal/metrics"
+	"github.com/zhangkui/lab-sample-trace-bench/internal/audit"
 	"github.com/zhangkui/lab-sample-trace-bench/internal/store"
-	"github.com/zhangkui/lab-sample-trace-bench/internal/validation"
 )
 
-var ErrNotFound = errors.New("record not found")
+var ErrNotFound = errors.New("not found")
 
-type Record struct {
-	ID        string    `json:"id"`
-	Kind      string    `json:"kind"`
-	Payload   string    `json:"payload"`
-	CreatedAt time.Time `json:"created_at"`
-	ExpiresAt time.Time `json:"expires_at"`
-}
-type Lab struct {
-	repo    *store.Store
-	metrics *metrics.Registry
+// Service is the application root. It holds the store, the audit ledger and a
+// clock function so tests can pin time. Methods on Service are the surface the
+// API layer calls; none of them leak store or audit types to the caller.
+type Service struct {
+	repo   *store.Store
+	audit  *audit.Ledger
+	now    func() time.Time
+	serial int // monotonic counter for synthetic ids
 }
 
-func NewLab(repo *store.Store) *Lab { return &Lab{repo: repo, metrics: metrics.New()} }
-func (l *Lab) Close()               {}
-func (l *Lab) Put(r Record) error {
-	if strings.TrimSpace(r.ID) == "" || strings.TrimSpace(r.Kind) == "" {
-		return fmt.Errorf("id and kind are required")
+// New constructs a Service backed by repo. The audit ledger is initialised and
+// its integrity checked before the service is returned so a corrupted ledger is
+// detected at startup rather than mid-operation.
+func New(repo *store.Store) (*Service, error) {
+	ledger, err := audit.New(repo.DB())
+	if err != nil {
+		return nil, err
 	}
-	if !validation.InWindow(r.CreatedAt, time.Unix(0, 0), time.Now().Add(time.Minute)) {
-		return fmt.Errorf("created_at outside accepted window")
+	if idx, err := ledger.Verify(); err != nil {
+		return nil, fmt.Errorf("verify audit: %w", err)
+	} else if idx != 0 {
+		return nil, fmt.Errorf("audit chain broken at entry %d", idx)
 	}
-	if !r.ExpiresAt.IsZero() && !r.ExpiresAt.After(r.CreatedAt) {
-		return fmt.Errorf("expires_at must be after created_at")
-	}
-	if err := l.repo.Save(r.Kind, r.ID, r); err != nil {
-		return err
-	}
-	l.metrics.Add("writes", 1)
-	return l.repo.Event(r.ID, "put")
+	return &Service{
+		repo:  repo,
+		audit: ledger,
+		now:   func() time.Time { return time.Now().UTC() },
+	}, nil
 }
-func (l *Lab) Get(kind, id string) (Record, error) {
-	var r Record
-	if err := l.repo.Load(kind, id, &r); err != nil {
-		return r, ErrNotFound
+
+// SetClock replaces the time source. Tests use it to freeze time so deadlines
+// and ordering are deterministic.
+func (s *Service) SetClock(f func() time.Time) { s.now = f }
+
+// requireActor validates that an operator identity was supplied. The audit
+// chain records the actor on every mutation, so an empty actor would produce
+// unverifiable history.
+func requireActor(actor string) error {
+	if strings.TrimSpace(actor) == "" {
+		return fmt.Errorf("operator is required")
 	}
-	return r, nil
+	return nil
 }
-func (l *Lab) List(kind string) ([]Record, error) {
-	out := []Record{}
-	err := l.repo.List(kind, func(raw []byte) error {
-		var r Record
-		if err := json.Unmarshal(raw, &r); err != nil {
-			return err
-		}
-		out = append(out, r)
-		return nil
-	})
-	return out, err
-}
-func (l *Lab) Delete(kind, id string) error {
-	if err := l.repo.Delete(kind, id); err != nil {
-		return err
-	}
-	return l.repo.Event(id, "delete")
+
+// id mints a short, monotonically increasing identifier under the given prefix.
+// It is not globally unique across restarts, but the audit chain provides the
+// authoritative ordering; the id is only a human handle.
+func (s *Service) id(prefix string) string {
+	s.serial++
+	return fmt.Sprintf("%s-%d", prefix, s.serial)
 }
