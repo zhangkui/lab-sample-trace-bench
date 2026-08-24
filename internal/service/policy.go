@@ -27,7 +27,7 @@ func (s *Service) CapacityAlerts(threshold float64) ([]CapacityAlert, error) {
 	}
 	alerts := make([]CapacityAlert, 0)
 	for _, zone := range utilization {
-		if zone.Rate <= threshold {
+		if zone.Rate < threshold {
 			continue
 		}
 		action := "pause_gate_in"
