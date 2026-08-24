@@ -67,7 +67,10 @@ func validScheduleTransition(from, to domain.ScheduleStatus) bool {
 	case domain.ScheduleAlongside:
 		return to == domain.ScheduleDeparted
 	case domain.ScheduleDeparted:
-		return to == domain.ScheduleAlongside
+		// Departed is terminal: a vessel that has sailed cannot re-enter
+		// alongside, otherwise concurrent scheduling would open an illegal
+		// activity window on a closed call.
+		return false
 	default:
 		return false
 	}
