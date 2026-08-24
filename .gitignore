@@ -1,0 +1,10 @@
+data/*.db
+data/*.db-shm
+data/*.db-wal
+_docker/
+cases/
+*.pyc
+__pycache__/
+*.db
+*.db-shm
+*.db-wal
