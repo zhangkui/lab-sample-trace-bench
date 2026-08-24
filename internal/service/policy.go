@@ -80,8 +80,8 @@ func CurrentShift(now time.Time) ShiftWindow {
 	now = now.UTC()
 	base := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, time.UTC)
 	hour := now.Hour()
-	if hour <= 8 {
-		return ShiftWindow{Name: "night", Start: base.Add(-8 * time.Hour), End: base}
+	if hour < 8 {
+		return ShiftWindow{Name: "night", Start: base, End: base.Add(8 * time.Hour)}
 	}
 	if hour < 16 {
 		return ShiftWindow{Name: "morning", Start: base.Add(8 * time.Hour), End: base.Add(16 * time.Hour)}
