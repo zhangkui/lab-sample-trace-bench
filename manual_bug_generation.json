@@ -1,0 +1,74 @@
+[
+  {
+    "bug_id": "lab-sample-trace-bench-bug-005",
+    "task_type": "bugfix",
+    "bug_category": "concurrency",
+    "production_file": "internal/service/schedule.go",
+    "red_pass": false,
+    "fix_pass": true,
+    "green_sha": "55a793ee3cc833e9d9d88c96b19d889fbaecc43c",
+    "red_sha": "63a8fe3ae307a722acfde13415de60247f79a0fb",
+    "fix_sha": "684dac2321b0c290482ef29fad32e00aab96bc9c",
+    "red_output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.716s\n"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-006",
+    "task_type": "diagnosis",
+    "bug_category": "context",
+    "production_file": "internal/service/operational_validation.go",
+    "red_pass": true,
+    "fix_pass": true,
+    "green_sha": "5f0b902c77c8156df4c9ea32d4512430732ce742",
+    "red_sha": "c9914d637674cb4986dc9bd98930f65086062ed5",
+    "fix_sha": "168f271c99ae580287b35dd6a63141d39f185f17",
+    "red_output": "--- FAIL: TestBug006ThirtyMinuteDeadlineIsCritical (0.00s)\n    bug006_regression_test.go:10: deadline class = soon\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.703s\nFAIL\n"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-007",
+    "task_type": "bugfix",
+    "bug_category": "slice",
+    "production_file": "internal/service/policy.go",
+    "red_pass": true,
+    "fix_pass": true,
+    "green_sha": "afeac4bb28f77132a45cd3695e183d232233e7b3",
+    "red_sha": "632b0fe92cad53b15c5f63a0e89edc637c92447b",
+    "fix_sha": "fb4808927d55ad6d4ff43b8e35af07f2e6c323f7",
+    "red_output": "--- FAIL: TestBug007EightOClockBelongsToMorningShift (0.00s)\n    bug007_regression_test.go:10: shift at 08:00 = night\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.722s\nFAIL\n"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-008",
+    "task_type": "diagnosis",
+    "bug_category": "error",
+    "production_file": "internal/service/policy.go",
+    "red_pass": true,
+    "fix_pass": false,
+    "green_sha": "7c6c25a95c401ec28b9adc43e14cecfb406cc120",
+    "red_sha": "aeea9a90a597620900fe6699cef4cb8d77b2949e",
+    "fix_sha": "cc268d091a4a88a73fc75559177b8c6418075be4",
+    "red_output": "1eb\ngithub.com/zhangkui/lab-sample-trace-bench/internal/service.TestBug008VesselTaskNeedsCallReference(0x1ffe72390200)\n\tF:/go-bug-create/workspace/lab-sample-trace-bench/internal/service/bug008_regression_test.go:9 +0x9c\ntesting.tRunner(0x1ffe72390200, 0x7ff690bba150)\n\tC:/Program Files/Go/src/testing/testing.go:2036 +0xc3\ncreated by testing.(*T).Run in goroutine 1\n\tC:/Program Files/Go/src/testing/testing.go:2101 +0x4a9\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.745s\nFAIL\n"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-009",
+    "task_type": "bugfix",
+    "bug_category": "concurrency",
+    "production_file": "internal/service/policy.go",
+    "red_pass": true,
+    "fix_pass": true,
+    "green_sha": "1e97f84ce5ff67ae88a36c49c4fd718c16d1d8ca",
+    "red_sha": "828a82a539e51907915f2b877eaa1fd5bfeb0d70",
+    "fix_sha": "6273160754495a331976bcfce6e1674b29cfc9fb",
+    "red_output": "--- FAIL: TestBug009CapacityAlertThresholdIsInclusive (0.00s)\n    bug009_regression_test.go:15: expected inclusive threshold alert, got 0\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.683s\nFAIL\n"
+  },
+  {
+    "bug_id": "lab-sample-trace-bench-bug-010",
+    "task_type": "diagnosis",
+    "bug_category": "nil",
+    "production_file": "internal/service/operational_validation.go",
+    "red_pass": true,
+    "fix_pass": true,
+    "green_sha": "1adca506cc96d125d6903e311c9cb5ab68401f39",
+    "red_sha": "1d323fcbabd9b6a658709925ae3adb9f7064e8fe",
+    "fix_sha": "f5c53f68c2271567c21f3d9355f83af435a69c07",
+    "red_output": "--- FAIL: TestBug010AssignedTaskRequiresCrane (0.00s)\n    bug010_regression_test.go:10: assigned task without crane was accepted\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.718s\nFAIL\n"
+  }
+]
