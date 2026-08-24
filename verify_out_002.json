@@ -1,0 +1,16 @@
+{
+  "bug_id": "lab-sample-trace-bench-BUG-002",
+  "task_type": "bugfix",
+  "pre_fix": {
+    "result": "FAIL",
+    "commit": "f2060ac260ad81f5ea221f50a6bc3eb0f8ba2c8d",
+    "output": "--- FAIL: TestBug002WindowKeepsMinuteBoundary (0.00s)\n    bug002_regression_test.go:11: window exceeds maximum duration\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.803s\nFAIL\n"
+  },
+  "post_fix": {
+    "result": "PASS",
+    "commit": "5576260b151fbacccf50f98ba716583fbd29d44b",
+    "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  "verify_cmds": "cd F:\\go-bug-create\\workspace\\lab-sample-trace-bench && go test ./internal/service -run TestBug002",
+  "trajectory": "未生成"
+}

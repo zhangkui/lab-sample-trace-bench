@@ -1,0 +1,16 @@
+{
+  "bug_id": "lab-sample-trace-bench-BUG-007",
+  "task_type": "bugfix",
+  "pre_fix": {
+    "result": "FAIL",
+    "commit": "632b0fe92cad53b15c5f63a0e89edc637c92447b",
+    "output": "--- FAIL: TestBug007EightOClockBelongsToMorningShift (0.00s)\n    bug007_regression_test.go:10: shift at 08:00 = night\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.687s\nFAIL\n"
+  },
+  "post_fix": {
+    "result": "PASS",
+    "commit": "fb4808927d55ad6d4ff43b8e35af07f2e6c323f7",
+    "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  "verify_cmds": "cd F:\\go-bug-create\\workspace\\lab-sample-trace-bench && go test ./internal/service -run TestBug007",
+  "trajectory": "未生成"
+}

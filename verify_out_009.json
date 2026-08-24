@@ -1,0 +1,16 @@
+{
+  "bug_id": "lab-sample-trace-bench-BUG-009",
+  "task_type": "bugfix",
+  "pre_fix": {
+    "result": "FAIL",
+    "commit": "828a82a539e51907915f2b877eaa1fd5bfeb0d70",
+    "output": "--- FAIL: TestBug009CapacityAlertThresholdIsInclusive (0.00s)\n    bug009_regression_test.go:15: expected inclusive threshold alert, got 0\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.760s\nFAIL\n"
+  },
+  "post_fix": {
+    "result": "PASS",
+    "commit": "6273160754495a331976bcfce6e1674b29cfc9fb",
+    "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  "verify_cmds": "cd F:\\go-bug-create\\workspace\\lab-sample-trace-bench && go test ./internal/service -run TestBug009",
+  "trajectory": "未生成"
+}

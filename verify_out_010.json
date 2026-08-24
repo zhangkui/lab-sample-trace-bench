@@ -1,0 +1,16 @@
+{
+  "bug_id": "lab-sample-trace-bench-BUG-010",
+  "task_type": "diagnosis",
+  "pre_fix": {
+    "result": "FAIL",
+    "commit": "1d323fcbabd9b6a658709925ae3adb9f7064e8fe",
+    "output": "--- FAIL: TestBug010AssignedTaskRequiresCrane (0.00s)\n    bug010_regression_test.go:10: assigned task without crane was accepted\nFAIL\nFAIL\tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t0.825s\nFAIL\n"
+  },
+  "post_fix": {
+    "result": "PASS",
+    "commit": "f5c53f68c2271567c21f3d9355f83af435a69c07",
+    "output": "ok  \tgithub.com/zhangkui/lab-sample-trace-bench/internal/service\t(cached)\n"
+  },
+  "verify_cmds": "cd F:\\go-bug-create\\workspace\\lab-sample-trace-bench && go test ./internal/service -run TestBug010",
+  "trajectory": "未生成"
+}
